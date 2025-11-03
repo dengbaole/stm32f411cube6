@@ -1,20 +1,16 @@
-
 #include "main.h"
 #include "gpio.h"
+#include "platform.h"
 
 
 void SystemClock_Config(void);
 
 int main(void) {
-
-	HAL_Init();
-
-	SystemClock_Config();
-
-	while (1) {
-		
+	platform_init();
+	uevt_bc_e(UEVT_APP_BOOT);
+	while(1) {
+		app_sched_execute();
 	}
-
 }
 
 /**
@@ -58,10 +54,6 @@ void SystemClock_Config(void) {
 	*/
 	HAL_RCC_EnableCSS();
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 /**
   * @brief  This function is executed in case of error occurrence.
