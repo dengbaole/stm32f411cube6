@@ -21,6 +21,8 @@ settings.json
 Output
 _build
 *.o
+/MDK-ARM/GPIO_IOToggle/*
+
 
 # for distribution
 dist
