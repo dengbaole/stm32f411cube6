@@ -1,7 +1,7 @@
-gpio_iotoggle\stm32f4xx_hal_msp.o: ../Src/stm32f4xx_hal_msp.c
-gpio_iotoggle\stm32f4xx_hal_msp.o: ../Inc/main.h
+gpio_iotoggle\stm32f4xx_hal_msp.o: ../moudle/stm32f4xx_hal_msp.c
+gpio_iotoggle\stm32f4xx_hal_msp.o: ../moudle/main.h
 gpio_iotoggle\stm32f4xx_hal_msp.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-gpio_iotoggle\stm32f4xx_hal_msp.o: ../Inc/stm32f4xx_hal_conf.h
+gpio_iotoggle\stm32f4xx_hal_msp.o: ../moudle/stm32f4xx_hal_conf.h
 gpio_iotoggle\stm32f4xx_hal_msp.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 gpio_iotoggle\stm32f4xx_hal_msp.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 gpio_iotoggle\stm32f4xx_hal_msp.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h

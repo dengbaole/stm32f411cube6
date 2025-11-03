@@ -1,7 +1,7 @@
-gpio_iotoggle\main.o: ../Src/main.c
-gpio_iotoggle\main.o: ../Inc/main.h
+gpio_iotoggle\main.o: ../moudle/main.c
+gpio_iotoggle\main.o: ../moudle/main.h
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-gpio_iotoggle\main.o: ../Inc/stm32f4xx_hal_conf.h
+gpio_iotoggle\main.o: ../moudle/stm32f4xx_hal_conf.h
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 gpio_iotoggle\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -28,4 +28,4 @@ gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 gpio_iotoggle\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-gpio_iotoggle\main.o: ../Inc/gpio.h
+gpio_iotoggle\main.o: ../moudle/gpio.h
