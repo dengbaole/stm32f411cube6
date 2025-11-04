@@ -45,7 +45,7 @@ void spi_init(void) {
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct); // 初始化
 
     // 设置PB3、PB4、PB5为SPI1复用功能
-    __HAL_AFIO_REMAP_SPI1_PARTIAL(); // 如果需要，你还可以手动设置复用映射（根据芯片而定）
+    // __HAL_AFIO_REMAP_SPI1_PARTIAL(); // 如果需要，你还可以手动设置复用映射（根据芯片而定）
 
     // SPI初始化
     hspi1.Instance = SPI1;
@@ -65,4 +65,42 @@ void spi_init(void) {
 }
 
 
+
+void spi_send_data(uint8_t *data, uint16_t size) {
+    // 使用HAL_SPI_Transmit函数发送数据
+    if (HAL_SPI_Transmit(&hspi1, data, size, HAL_MAX_DELAY) != HAL_OK) {
+        // 处理错误
+        // 可以在这里添加错误处理代码
+    }
+}
+
+
+
+void LCD_Writ_Bus(uint8_t dat) {
+	TFT_CS_LOW();
+
+	HAL_SPI_Transmit(&hspi1, &dat, 1, HAL_MAX_DELAY);
+	TFT_CS_HIGH();
+}
+
+
+
+void LCD_WR_DATA8(uint8_t dat) {
+	LCD_Writ_Bus(dat);
+}
+
+
+
+void LCD_WR_DATA(uint16_t dat) {
+	LCD_Writ_Bus(dat >> 8);
+	LCD_Writ_Bus(dat);
+}
+
+
+
+void LCD_WR_REG(uint8_t dat) {
+	TFT_RS_CMD();//д����
+	LCD_Writ_Bus(dat);
+	TFT_RS_DATA();//д����
+}
 
