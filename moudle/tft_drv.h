@@ -7,12 +7,12 @@
 
 
 #if USE_HORIZONTAL==0||USE_HORIZONTAL==1
-	#define LCD_W 80
-	#define LCD_H 160
+	#define LCD_W 240
+	#define LCD_H 320
 
 #else
-	#define LCD_W 160
-	#define LCD_H 80
+	#define LCD_W 320
+	#define LCD_H 240
 #endif
 
 #define LCD_DC_PIN  GPIO_PIN_14
@@ -30,6 +30,9 @@
 #define TFT_RS_DATA()   HAL_GPIO_WritePin(DC_PORT,LCD_DC_PIN,GPIO_PIN_SET)
 #define LCD_RES_Clr()  HAL_GPIO_WritePin(RST_PORT,LCD_RES_PIN,GPIO_PIN_RESET)//RES
 #define LCD_RES_Set()  HAL_GPIO_WritePin(RST_PORT,LCD_RES_PIN,GPIO_PIN_SET)
+
+void lcd_init(void);
+void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);
 
 #endif /*__ pinoutConfig_H */
 

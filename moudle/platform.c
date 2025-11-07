@@ -13,5 +13,6 @@ void platform_init(void) {
 	module_init();
 	led_init();
 	LED_ON();
+	lcd_init();
 
 }
