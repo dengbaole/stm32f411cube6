@@ -92,23 +92,10 @@ void main_handler(uevt_t* evt) {
 			// }
 
 			// lv_timer_handler();
-			// tick_10MS++;
-			// if(tick_10MS % 100 == 0) {
-			// 	HAL_GPIO_TogglePin(LED_R_PORT, LED_R_PIN);
-			// 	// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			// 	// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			// }
-			//			if(tick_10MS % 300 == 100) {
-			//				HAL_GPIO_TogglePin(LED_R_PORT, LED_R_PIN);
-			//				HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			//				// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			//			}
-			//			if(tick_10MS % 300 == 200) {
-			//				// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			//				HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			//				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
-			//			}
-
+			tick_10MS++;
+			if(tick_10MS % 100 == 0) {
+				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
+			}
 			break;
 		case UEVT_RTC_1MS:
 			// tick_1MS++;
@@ -317,13 +304,12 @@ void others_handler(uevt_t* evt) {
 			break;
 		case UEVT_RTC_10MS:
 			tick_10MS++;
-			// if(tick_10MS % 100 == 0 && beep_on_times > 0) {
-			// 	beep_on_times--;
-			// 	beep_on();
-			// }
-			// if(tick_10MS % 100 == 50) {
-			// 	beep_off();
-			// }
+			if(tick_10MS % 100 == 0) {
+				LED_ON();
+			}
+			if(tick_10MS % 100 == 50) {
+				LED_OFF();
+			}
 			break;
 		case UEVT_APP_START:
 			started = true;

@@ -11,6 +11,7 @@ void platform_init(void) {
 	HAL_Init();                         /* 初始化HAL库 */
 	SystemClock_Config();
 	module_init();
+	btim_timx_int_init(1000 - 1, 100);
 	led_init();
 	LED_ON();
 	lcd_init();

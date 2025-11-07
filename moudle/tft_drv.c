@@ -100,19 +100,19 @@ void LCD_direction(uint8_t direction) {
 	switch(direction) {
 		case 0:
 			LCD_WR_REG(0x36);
-            LCD_WR_REG((1 << 3) | (0 << 6) | (0 << 7)); //BGR==1,MY==0,MX==0,MV==0
+			LCD_WR_REG((1 << 3) | (0 << 6) | (0 << 7)); //BGR==1,MY==0,MX==0,MV==0
 			break;
 		case 1:
-            LCD_WR_REG(0x36);
-            LCD_WR_REG((1 << 3) | (0 << 7) | (1 << 6) | (1 << 5));
+			LCD_WR_REG(0x36);
+			LCD_WR_REG((1 << 3) | (0 << 7) | (1 << 6) | (1 << 5));
 			break;
 		case 2:
-            LCD_WR_REG(0x36);
-            LCD_WR_REG((1 << 3) | (1 << 6) | (1 << 7));
+			LCD_WR_REG(0x36);
+			LCD_WR_REG((1 << 3) | (1 << 6) | (1 << 7));
 			break;
 		case 3:
-            LCD_WR_REG(0x36);
-            LCD_WR_REG((1 << 3) | (1 << 7) | (1 << 5));
+			LCD_WR_REG(0x36);
+			LCD_WR_REG((1 << 3) | (1 << 7) | (1 << 5));
 			break;
 		default:
 			break;

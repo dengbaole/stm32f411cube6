@@ -8,6 +8,7 @@
 #include "stdbool.h"
 #include "uevent.h"
 #include "even.h"
+#include "bsp_timer.h"
 #include "led_drv.h"
 #include "spi_drv.h"
 #include "tft_drv.h"
