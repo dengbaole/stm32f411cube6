@@ -15,5 +15,6 @@ void platform_init(void) {
 	led_init();
 	LED_ON();
 	lcd_init();
-
+	LCD_Clear(2323);
+	LCD_Fill(0, 0, 240, 320, 1111);
 }

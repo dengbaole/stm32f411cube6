@@ -49,7 +49,6 @@ void  tft_init(void) {
 	gpio_init_struct.Mode = GPIO_MODE_OUTPUT_PP;
 	gpio_init_struct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(CS_PORT, &gpio_init_struct);
-	HAL_GPIO_WritePin(LED_B_PORT, LED_B_PIN, GPIO_PIN_RESET);
 	TFT_CS_HIGH();
 }
 
@@ -123,12 +122,12 @@ void lcd_init(void) {
 	tft_init();
 	spi_init();
 	LCD_RES_Clr();
-	HAL_Delay(10);
+	HAL_Delay(100);
 	LCD_RES_Set();
-	HAL_Delay(10);
-	HAL_Delay(10);
-	LCD_WR_REG(0x11);     //Sleep out
-	HAL_Delay(12);                //Delay 120ms
+	HAL_Delay(50);
+	// HAL_Delay(10);
+	// LCD_WR_REG(0x11);     //Sleep out
+	// HAL_Delay(12);                //Delay 120ms
 	LCD_WR_REG(0xCF);
 	LCD_WR_DATA8(0x00);
 	LCD_WR_DATA8(0xD9); //C1
@@ -257,3 +256,17 @@ void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color
 	}
 }
 
+
+void LCD_Clear(uint16_t Color)
+{
+  uint16_t i,m;  
+	LCD_SetWindows(0,0,240-1,320-1);   
+	TFT_CS_LOW();
+	TFT_RS_DATA();
+	for(i=0;i<240;i++) {
+		for(m=0;m<320;m++) {	
+			Lcd_WriteData_16Bit(Color);
+		}
+	}
+	TFT_CS_HIGH();
+} 
