@@ -9,6 +9,8 @@
 #include "uevent.h"
 #include "even.h"
 #include "led_drv.h"
+#include "spi_drv.h"
+#include "tft_drv.h"
 
 //事件定义
 #define UEVT_APP_BASE (0xAE00)

@@ -4,6 +4,8 @@
 
 #include "platform.h"
 
+extern SPI_HandleTypeDef hspi1;
+
 void spi_init(void);
 
 

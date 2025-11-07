@@ -1,18 +1,36 @@
 
-#ifndef _SPI_DRV_H
-#define _SPI_DRV_H
-#ifdef __cplusplus
-extern "C" {
+#ifndef _TFT_DRV_H
+#define _TFT_DRV_H
+#include "platform.h"
+
+#define USE_HORIZONTAL 1
+
+
+#if USE_HORIZONTAL==0||USE_HORIZONTAL==1
+	#define LCD_W 80
+	#define LCD_H 160
+
+#else
+	#define LCD_W 160
+	#define LCD_H 80
 #endif
 
-#include "main.h"
+#define LCD_DC_PIN  GPIO_PIN_14
+#define DC_PORT GPIOB
 
+#define LCD_RES_PIN  GPIO_PIN_12
+#define RST_PORT GPIOB
 
-void MX_GPIO_Init(void);
+#define CS_PIN    GPIO_PIN_15
+#define CS_PORT   GPIOB
 
-#ifdef __cplusplus
-}
-#endif
+#define TFT_CS_LOW()  HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_RESET)
+#define TFT_CS_HIGH()  HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET)
+#define TFT_RS_CMD()   HAL_GPIO_WritePin(DC_PORT,LCD_DC_PIN,GPIO_PIN_RESET)//DC
+#define TFT_RS_DATA()   HAL_GPIO_WritePin(DC_PORT,LCD_DC_PIN,GPIO_PIN_SET)
+#define LCD_RES_Clr()  HAL_GPIO_WritePin(RST_PORT,LCD_RES_PIN,GPIO_PIN_RESET)//RES
+#define LCD_RES_Set()  HAL_GPIO_WritePin(RST_PORT,LCD_RES_PIN,GPIO_PIN_SET)
+
 #endif /*__ pinoutConfig_H */
 
 

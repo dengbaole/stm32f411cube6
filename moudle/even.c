@@ -108,12 +108,12 @@ void main_handler(uevt_t* evt) {
 			//				HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
 			//				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
 			//			}
-            
+
 			break;
 		case UEVT_RTC_1MS:
 			// tick_1MS++;
 			// lv_tick_inc(1);
-        	// if(tick_10MS % 100 == 50) {
+			// if(tick_10MS % 100 == 50) {
 			// 	HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
 			// 	// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
 			// }

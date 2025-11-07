@@ -10,6 +10,7 @@ uint8_t beep_on_times = 3;
 void platform_init(void) {
 	HAL_Init();                         /* 初始化HAL库 */
 	SystemClock_Config();
+	module_init();
 	led_init();
 	LED_ON();
 
