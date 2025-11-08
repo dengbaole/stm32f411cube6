@@ -275,13 +275,18 @@ void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color) {
 
 void LCD_Clear(uint16_t Color) {
 	uint16_t i, m;
+	uint8_t display_buff[240];
 	LCD_SetWindows(0, 0, 240 - 1, 320 - 1);
 	TFT_CS_LOW();
 	TFT_RS_DATA();
-	for(i = 0; i < 240; i++) {
-		for(m = 0; m < 320; m++) {
-			Lcd_WriteData_16Bit(Color);
-		}
+	// for(i = 0; i < 240; i++) {
+	// 	for(m = 0; m < 320; m++) {
+	// 		Lcd_WriteData_16Bit(Color);
+	// 	}
+	// }
+	memset(display_buff, 0, 240);
+	for(uint16_t i = 0; i < 320; i++) {
+		spi_send(display_buff, 240);
 	}
 	TFT_CS_HIGH();
 }
