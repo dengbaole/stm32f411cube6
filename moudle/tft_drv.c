@@ -256,6 +256,15 @@ void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color
 	}
 }
 
+void LCD_SetCursor(uint16_t Xpos, uint16_t Ypos) {	  	    			
+	LCD_SetWindows(Xpos,Ypos,Xpos,Ypos);	
+} 
+
+
+void LCD_DrawPoint(uint16_t x,uint16_t y,uint16_t color) {
+	LCD_SetCursor(x,y);//设置光标位置 
+	Lcd_WriteData_16Bit(color); 
+}
 
 void LCD_Clear(uint16_t Color) {
 	uint16_t i, m;

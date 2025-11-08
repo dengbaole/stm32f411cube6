@@ -3,10 +3,10 @@
 #define _TFT_DRV_H
 #include "platform.h"
 
-#define USE_HORIZONTAL 1
+#define USE_HORIZONTAL 0
 
 
-#if USE_HORIZONTAL==0||USE_HORIZONTAL==1
+#if USE_HORIZONTAL==1
 	#define LCD_W 240
 	#define LCD_H 320
 
@@ -33,6 +33,7 @@
 
 void lcd_init(void);
 void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);
+void LCD_DrawPoint(uint16_t x,uint16_t y,uint16_t color);
 void LCD_Clear(uint16_t Color);
 #endif /*__ pinoutConfig_H */
 

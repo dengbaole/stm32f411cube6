@@ -7,9 +7,9 @@
 
 
 //lvgl
-// #include "lvgl.h"
-// #include "lv_port_disp.h"
-// #include "lv_port_indev.h"
+#include "lvgl.h"
+#include "lv_port_disp.h"
+#include "lv_port_indev.h"
 
 //处理打印测试
 void main_handler(uevt_t* evt) {
@@ -30,23 +30,23 @@ void main_handler(uevt_t* evt) {
 			// lcd_clear(0, 0, LCD_W, LCD_H, RED);
 			// LCD_BL_ON();//打开背光
 
-			// lv_init();
-			// lv_port_disp_init();//显示
-			// // lv_port_indev_init();  //触控
+			lv_init();
+			lv_port_disp_init();//显示
+			// lv_port_indev_init();  //触控
 
-			// lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
-			// lv_obj_set_pos(mybtn, 5, 5);
-			// lv_obj_set_size(mybtn, 5, 5);
+			lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
+			lv_obj_set_pos(mybtn, 5, 5);
+			lv_obj_set_size(mybtn, 5, 5);
 
 
-			// lv_obj_t* label_btn = lv_label_create(mybtn);
-			// lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);
-			// lv_label_set_text(label_btn, "test");
+			lv_obj_t* label_btn = lv_label_create(mybtn);
+			lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);
+			lv_label_set_text(label_btn, "test");
 
-			// lv_obj_t* mylabel = lv_label_create(lv_scr_act());
-			// lv_label_set_text(mylabel, "hello world!");
-			// lv_obj_align(mylabel, LV_ALIGN_CENTER, 0, 0);
-			// lv_obj_align_to(mybtn, mylabel, LV_ALIGN_OUT_TOP_MID, 0, 0);
+			lv_obj_t* mylabel = lv_label_create(lv_scr_act());
+			lv_label_set_text(mylabel, "hello world!");
+			lv_obj_align(mylabel, LV_ALIGN_CENTER, 0, 0);
+			lv_obj_align_to(mybtn, mylabel, LV_ALIGN_OUT_TOP_MID, 0, 0);
 			break;
 		case UEVT_RTC_10MS:
 			// if(started) {
@@ -91,7 +91,7 @@ void main_handler(uevt_t* evt) {
 
 			// }
 
-			// lv_timer_handler();
+			lv_timer_handler();
 			tick_10MS++;
 			if(tick_10MS % 100 == 0) {
 				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
@@ -99,7 +99,7 @@ void main_handler(uevt_t* evt) {
 			break;
 		case UEVT_RTC_1MS:
 			// tick_1MS++;
-			// lv_tick_inc(1);
+			lv_tick_inc(1);
 			// if(tick_10MS % 100 == 50) {
 			// 	HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
 			// 	// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
