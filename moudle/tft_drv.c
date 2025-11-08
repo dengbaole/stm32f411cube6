@@ -257,16 +257,15 @@ void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color
 }
 
 
-void LCD_Clear(uint16_t Color)
-{
-  uint16_t i,m;  
-	LCD_SetWindows(0,0,240-1,320-1);   
+void LCD_Clear(uint16_t Color) {
+	uint16_t i, m;
+	LCD_SetWindows(0, 0, 240 - 1, 320 - 1);
 	TFT_CS_LOW();
 	TFT_RS_DATA();
-	for(i=0;i<240;i++) {
-		for(m=0;m<320;m++) {	
+	for(i = 0; i < 240; i++) {
+		for(m = 0; m < 320; m++) {
 			Lcd_WriteData_16Bit(Color);
 		}
 	}
 	TFT_CS_HIGH();
-} 
+}
