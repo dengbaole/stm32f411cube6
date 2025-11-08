@@ -161,7 +161,7 @@ void lcd_init(void) {
 	LCD_WR_DATA8(0x26); 	 //3C
 	LCD_WR_REG(0xC7);    //VCM control2
 	LCD_WR_DATA8(0XB0);
-	
+
 	LCD_WR_REG(0x36);    // Memory Access Control
 	LCD_WR_DATA8(0x08);
 	// LCD_WR_DATA8(0x28);

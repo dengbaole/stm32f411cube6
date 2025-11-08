@@ -33,7 +33,7 @@
 
 void lcd_init(void);
 void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);
-void LCD_DrawPoint(uint16_t x,uint16_t y,uint16_t color);
+void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color);
 void LCD_Clear(uint16_t Color);
 #endif /*__ pinoutConfig_H */
 
