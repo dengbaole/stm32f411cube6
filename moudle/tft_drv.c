@@ -120,7 +120,7 @@ void LCD_direction(uint8_t direction) {
 
 void lcd_init(void) {
 	tft_init();
-	spi_init();
+	spi1_init();
 	LCD_RES_Clr();
 	HAL_Delay(100);
 	LCD_RES_Set();

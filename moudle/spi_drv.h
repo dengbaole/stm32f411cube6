@@ -6,7 +6,8 @@
 
 extern SPI_HandleTypeDef hspi1;
 
-void spi_init(void);
+void spi1_init(void);
+void spi2_init(void);
 void spi_send(uint8_t* data, uint16_t size);
 
 #endif /*__ pinoutConfig_H */

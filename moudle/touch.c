@@ -54,11 +54,7 @@
 **************************************************************************************************/
 #include "touch.h"
 #include "lcd.h"
-#include "delay.h"
 #include "stdlib.h"
-#include "math.h"
-#include "24cxx.h"
-#include "gui.h"
 
 _m_tp_dev tp_dev = {
 	TP_Init,
@@ -76,8 +72,8 @@ _m_tp_dev tp_dev = {
 	0,
 };
 //默认为touchtype=0的数据.
-u8 CMD_RDX = 0XD0;
-u8 CMD_RDY = 0X90;
+uint8_t CMD_RDX = 0XD0;
+uint8_t CMD_RDY = 0X90;
 
 /*****************************************************************************
  * @name       :void TP_Write_Byte(u8 num)
