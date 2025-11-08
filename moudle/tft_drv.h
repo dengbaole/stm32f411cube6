@@ -3,7 +3,7 @@
 #define _TFT_DRV_H
 #include "platform.h"
 
-#define USE_HORIZONTAL 0
+#define USE_HORIZONTAL 1
 
 
 #if USE_HORIZONTAL==1

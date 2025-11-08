@@ -20,11 +20,15 @@ void TIM1_UP_TIM10_IRQHandler(void) {
 	HAL_TIM_IRQHandler(&g_timx_handle);
 }
 
+// #include "lvgl.h"
+// #include "lv_port_disp.h"
+// #include "lv_port_indev.h"
 /* 定时器溢出中断回调函数 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
 	static uint16_t counter;
 	if (htim->Instance == TIM1) { // 判断实例是否为 TIM1
 		// LED0_TOGGLE();
+		// lv_tick_inc(1);
 		uevt_bc_e(UEVT_RTC_1MS);  // 处理 1ms 的事件
 		counter++;
 		if ((counter % 10) == 0) {

@@ -2,6 +2,9 @@
 #include "gpio.h"
 #include "platform.h"
 
+#include "lvgl.h"
+#include "lv_port_disp.h"
+#include "lv_port_indev.h"
 
 void SystemClock_Config(void);
 

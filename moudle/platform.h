@@ -18,11 +18,11 @@
 // 上电信号
 #define UEVT_APP_POWERUP (UEVT_APP_BASE | 0x01)
 // Boot阶段
-#define UEVT_APP_BOOT (UEVT_APP_BASE | 0x0B)
+#define UEVT_APP_BOOT (UEVT_APP_BASE | 0x02)
 // 初始化段
-#define UEVT_APP_SETUP (UEVT_APP_BASE | 0x02)
+#define UEVT_APP_SETUP (UEVT_APP_BASE | 0x04)
 // 多任务开始
-#define UEVT_APP_START (UEVT_APP_BASE | 0x03)
+#define UEVT_APP_START (UEVT_APP_BASE | 0x08)
 // 准备休眠信号
 #define UEVT_APP_BEFORE_SLEEP (UEVT_APP_BASE | 0x0E)
 

@@ -10,11 +10,9 @@ uint8_t beep_on_times = 3;
 void platform_init(void) {
 	HAL_Init();                         /* 初始化HAL库 */
 	SystemClock_Config();
+
+	app_sched_init();
+	user_event_init();
 	module_init();
-	btim_timx_int_init(1000 - 1, 100);
-	led_init();
-	LED_ON();
-	lcd_init();
-	LCD_Clear(2323);
-	LCD_DrawPoint(1, 1, 1111);
+
 }

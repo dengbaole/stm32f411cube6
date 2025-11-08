@@ -161,8 +161,11 @@ void lcd_init(void) {
 	LCD_WR_DATA8(0x26); 	 //3C
 	LCD_WR_REG(0xC7);    //VCM control2
 	LCD_WR_DATA8(0XB0);
+	
 	LCD_WR_REG(0x36);    // Memory Access Control
 	LCD_WR_DATA8(0x08);
+	// LCD_WR_DATA8(0x28);
+
 	LCD_WR_REG(0x3A);
 	LCD_WR_DATA8(0x55);
 	LCD_WR_REG(0xB1);
@@ -218,11 +221,15 @@ void lcd_init(void) {
 	LCD_WR_DATA8(0x00);
 	LCD_WR_DATA8(0x00);
 	LCD_WR_DATA8(0xef);
+
+	// LCD_WR_REG(0x36);
+	// LCD_WR_REG(0xa0);
+
 	LCD_WR_REG(0x11); //Exit Sleep
 	HAL_Delay(120);
 	LCD_WR_REG(0x29); //display on
 
-	LCD_direction(USE_HORIZONTAL);//设置LCD显示方向
+	// LCD_direction(3);//设置LCD显示方向
 
 }
 
@@ -256,14 +263,14 @@ void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color
 	}
 }
 
-void LCD_SetCursor(uint16_t Xpos, uint16_t Ypos) {	  	    			
-	LCD_SetWindows(Xpos,Ypos,Xpos,Ypos);	
-} 
+void LCD_SetCursor(uint16_t Xpos, uint16_t Ypos) {
+	LCD_SetWindows(Xpos, Ypos, Xpos, Ypos);
+}
 
 
-void LCD_DrawPoint(uint16_t x,uint16_t y,uint16_t color) {
-	LCD_SetCursor(x,y);//设置光标位置 
-	Lcd_WriteData_16Bit(color); 
+void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color) {
+	LCD_SetCursor(x, y); //设置光标位置
+	Lcd_WriteData_16Bit(color);
 }
 
 void LCD_Clear(uint16_t Color) {

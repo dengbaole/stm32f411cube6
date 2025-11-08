@@ -98,7 +98,7 @@ static const lv_btnmatrix_ctrl_t default_kb_ctrl_num_map[] = {
 	1, 1, 1, 1, 1
 };
 
-static const char ** kb_map[9] = {
+static const char** kb_map[9] = {
 	(const char* *)default_kb_map_lc,
 	(const char* *)default_kb_map_uc,
 	(const char* *)default_kb_map_spec,
