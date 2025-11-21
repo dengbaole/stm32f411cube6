@@ -46,62 +46,14 @@ void main_handler(uevt_t* evt) {
 			lv_obj_align_to(mybtn, mylabel, LV_ALIGN_OUT_TOP_MID, 0, 0);
 			break;
 		case UEVT_RTC_10MS:
-
-			// if(started) {
-			// 	//LOG_HEAD("[%08d]:\n", tick++);
-			// }
-			// t_10ms++;
-			// // if(h % 3 == 0) {
-
-			// // 	// LCD_ShowPicture2(0, 0,  fonts_10_12_num_array[h / 10 % 10]);
-			// // 	LCD_ShowPicture_test(0, 0,  0*25600*(h%30));
-
-			// // }
-			// if(t_10ms % 3 == 0) {
-			// 	// LCD_ShowPicture2(0, 0,  fonts_22_28_num_array[h / 10 % 35]);
-			// 	// LCD_ShowPicture2(0, 0,  fonts_10_12_num_array[h / 10 % 10]);
-			// 	// LCD_ShowPicture_test(0, 0,  0xbbf1c+25600*(h/3%30));
-
-			// 		static int x = 0;
-			// 	static int y = 0;
-			// 	static int vx = 2;  // 水平方向速度
-			// 	static int vy = 1;  // 垂直方向速度
-			// 	uint8_t	index = 0;
-			// 	 // 更新位置
-			// 	x += vx;
-			// 	y += vy;
-			// 	// 边界检测和反射
-			// 	if (x <= 0 || x >= 80 - flash_letter_array[0].w) {
-			// 		vx = -vx;
-			// 		x += vx;  // 防止越界
-			// 	}
-			// 	if (y <= 0 || y >= 160 - flash_letter_array[0].h) {
-			// 		vy = -vy;
-			// 		y += vy;  // 防止越界
-			// 	}
-
-
-			// 	// index = display_num(index, 8,  100, torbo_num_bitmap, old_key_value);
-			// 	index = set_display_component(index, 0, 0, &flash_timeout_array[t_10ms / 3 % 30]);
-			// 	index = set_display_component(index, x, y, &flash_letter_array[t_10ms / 30 % 26]);
-			// 	index = set_display_component(index, 0, 0, NULL);
-			// 	display_component(default_component);
-
-			// }
-
 			lv_timer_handler();
 			tick_10MS++;
-			if(tick_10MS % 100 == 0) {
+			if(tick_10MS % 50 == 0) {
 				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
 			}
 			break;
 		case UEVT_RTC_1MS:
-			// tick_1MS++;
 			lv_tick_inc(1);
-			// if(tick_10MS % 100 == 50) {
-			// 	HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			// 	// HAL_GPIO_TogglePin(LED_G_PORT, LED_G_PIN);
-			// }
 			break;
 		case UEVT_APP_START:
 			started = true;

@@ -84,7 +84,7 @@ void spi1_init(void) {
 		Error_Handler();
 	}
 
-	__HAL_LINKDMA(spiHandle, hdmarx, hdma_spi1_rx);
+	__HAL_LINKDMA(&hspi1, hdmarx, hdma_spi1_rx);
 
 	// 使能DMA中断
 	HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
