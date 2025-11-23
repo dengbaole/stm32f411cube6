@@ -23,7 +23,7 @@ extern uint8_t tp_buff[20];
 
 #define TP_CS_LOW()  HAL_GPIO_WritePin(TP_CS_PORT, TP_CS_PIN, GPIO_PIN_RESET)
 #define TP_CS_HIGH()  HAL_GPIO_WritePin(TP_CS_PORT, TP_CS_PIN, GPIO_PIN_SET)
-#define IS_TP_IRQ_ON()   HAL_GPIO_ReadPin(TP_IRQ_PORT,TP_IRQ_PIN)
+#define IS_TP_IRQ_ON()   HAL_GPIO_ReadPin(TP_IRQ_PORT,TP_IRQ_PIN)  //0是按下
 
 
 void tp_spi_send(uint8_t* data, uint16_t size);
