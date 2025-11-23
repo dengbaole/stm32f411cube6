@@ -33,22 +33,22 @@ void  tft_init(void) {
 
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
-	gpio_init_struct.Pin = LCD_DC_PIN;
+	gpio_init_struct.Pin = TFT_DC_PIN;
 	gpio_init_struct.Mode = GPIO_MODE_OUTPUT_PP;
 	gpio_init_struct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(DC_PORT, &gpio_init_struct);
+	HAL_GPIO_Init(TFT_DC_PORT, &gpio_init_struct);
 	TFT_RS_DATA();
 
-	gpio_init_struct.Pin = LCD_RES_PIN;
+	gpio_init_struct.Pin = TFT_RST_PIN;
 	gpio_init_struct.Mode = GPIO_MODE_OUTPUT_PP;
 	gpio_init_struct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(RST_PORT, &gpio_init_struct);
-	LCD_RES_Clr();
+	HAL_GPIO_Init(TFT_RST_PORT, &gpio_init_struct);
+	TFT_RES_Clr();
 
-	gpio_init_struct.Pin = CS_PIN;
+	gpio_init_struct.Pin = TFT_CS_PIN;
 	gpio_init_struct.Mode = GPIO_MODE_OUTPUT_PP;
 	gpio_init_struct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(CS_PORT, &gpio_init_struct);
+	HAL_GPIO_Init(TFT_CS_PORT, &gpio_init_struct);
 	TFT_CS_HIGH();
 }
 
@@ -121,9 +121,9 @@ void LCD_direction(uint8_t direction) {
 void lcd_init(void) {
 	tft_init();
 	spi1_init();
-	LCD_RES_Clr();
+	TFT_RES_Clr();
 	HAL_Delay(100);
-	LCD_RES_Set();
+	TFT_RES_Set();
 	HAL_Delay(50);
 	// HAL_Delay(10);
 	// LCD_WR_REG(0x11);     //Sleep out

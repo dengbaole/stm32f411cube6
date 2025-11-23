@@ -24,6 +24,8 @@ void main_handler(uevt_t* evt) {
 			btim_timx_int_init(1000 - 1, 100);
 			led_init();
 			LED_ON();
+			tp_init();
+
 			lcd_init();
 			LCD_Clear(0xffff);
 
@@ -50,6 +52,7 @@ void main_handler(uevt_t* evt) {
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
 				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
+				tp_spi_send(tp_buff, 20);
 			}
 			break;
 		case UEVT_RTC_1MS:

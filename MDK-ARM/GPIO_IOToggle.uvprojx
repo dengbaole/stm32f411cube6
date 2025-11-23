@@ -454,6 +454,11 @@
               <FileType>1</FileType>
               <FilePath>..\moudle\led_drv.c</FilePath>
             </File>
+            <File>
+              <FileName>touch_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\touch_drv.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

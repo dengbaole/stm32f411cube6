@@ -1,29 +1,42 @@
-# HAL GPIO IO Toggle
+## 主控
 
-This is a tutorial to implement a simple IO level reversal
+stm32f411
 
-# There are the creation procedures
+## 应用
 
-## First: choose Pin and choose debug mode
+stm32f411移植lvgl例程
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/1.PNG "first")
+## 引脚应用
 
-## Second: choose RCC and choose crystal resonator
+1.屏幕
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/2.PNG "second")
+//屏幕
 
-## Third: set GPIO attribute
+CS:PB8
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/3.PNG "third")
+RES:PB7
 
-## Forth: clock configuaraton choose HSE
+DC:PB6
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/4.PNG "forth")
+SDI:PB5
 
-## Fifth: set project name, location and your IDE
+LED:
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/5.PNG "fifth")
+SCK:PB3
 
-## Sixth: generate peripheral initialization(.c or .h) and generate the code
+SDO:PB4
 
-![](/STM32F411CEU6-Black-Board/SDK/HAL_examples/GPIO/GPIO_IOToggle/Images/6.PNG "sixth")
+//触控芯片
+
+TP_CLK: PB13
+
+TP_CS:PA8
+
+TP_DI:PB14
+
+TP_DO:PB15
+
+TP_IRQ:PB12
+
+
+### 屏幕接口

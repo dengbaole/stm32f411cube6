@@ -1,31 +1,5 @@
 #include "spi_drv.h"
 
-/****************************************************************************************************
-//=========================================电源接线================================================//
-//     LCD模块                STM32单片机
-//      VCC          接        DC5V/3.3V      //电源
-//      GND          接          GND          //电源地
-//=======================================液晶屏数据线接线==========================================//
-//本模块默认数据总线类型为SPI总线
-//     LCD模块                STM32单片机
-//    SDI(MOSI)      接          PB5          //液晶屏SPI总线数据写信号
-//    SDO(MISO)      接          PB4          //液晶屏SPI总线数据读信号，如果不需要读，可以不接线
-//=======================================液晶屏控制线接线==========================================//
-//     LCD模块 					      STM32单片机
-//       LED         接          PB13         //液晶屏背光控制信号，如果不需要控制，接5V或3.3V
-//       SCK         接          PB3          //液晶屏SPI总线时钟信号
-//      DC/RS        接          PB14         //液晶屏数据/命令控制信号
-//       RST         接          PB12         //液晶屏复位控制信号
-//       CS          接          PB15         //液晶屏片选控制信号
-//=========================================触摸屏触接线=========================================//
-//如果模块不带触摸功能或者带有触摸功能，但是不需要触摸功能，则不需要进行触摸屏接线
-//	   LCD模块                STM32单片机
-//      T_IRQ        接          PB1          //触摸屏触摸中断信号
-//      T_DO         接          PB2          //触摸屏SPI总线读信号
-//      T_DIN        接          PF11         //触摸屏SPI总线写信号
-//      T_CS         接          PC5          //触摸屏片选控制信号
-//      T_CLK        接          PB0          //触摸屏SPI总线时钟信号
-**************************************************************************************************/
 
 DMA_HandleTypeDef hdma_spi1_tx;
 DMA_HandleTypeDef hdma_spi1_rx;
@@ -45,7 +19,7 @@ void spi1_init(void) {
 	PB4     ------> SPI1_MISO
 	PB5     ------> SPI1_MOSI
 	*/
-	GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5;
+	GPIO_InitStruct.Pin = TFT_CLOCK_PIN | TFT_MISO_PIN | TFT_MOSI_PIN;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -60,13 +34,13 @@ void spi1_init(void) {
 	hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
 	hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
 	hspi1.Init.NSS = SPI_NSS_SOFT;
-	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; // 调整分频值以增加速度
+	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2; // 调整分频值以增加速度
 	hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
 	hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
 	hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
 	hspi1.Init.CRCPolynomial = 10;
 	if (HAL_SPI_Init(&hspi1) != HAL_OK) {
-		Error_Handler();
+		//Error_Handler();
 	}
 
 	// DMA 配置
@@ -81,7 +55,7 @@ void spi1_init(void) {
 	hdma_spi1_rx.Init.Priority = DMA_PRIORITY_LOW;
 	hdma_spi1_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
 	if (HAL_DMA_Init(&hdma_spi1_rx) != HAL_OK) {
-		Error_Handler();
+		//Error_Handler();
 	}
 
 	__HAL_LINKDMA(&hspi1, hdmarx, hdma_spi1_rx);
@@ -119,11 +93,11 @@ void spi2_init(void) {
 
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	/**SPI2 GPIO Configuration
-	PB10     ------> SPI2_SCK
+	PB13     ------> SPI2_SCK
 	PB14     ------> SPI2_MISO
 	PB15     ------> SPI2_MOSI
 	*/
-	GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_14 | GPIO_PIN_15;
+	GPIO_InitStruct.Pin = TP_CLOCK_PIN | TP_MISO_PIN | TP_MOSI_PIN;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -143,16 +117,26 @@ void spi2_init(void) {
 	hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
 	hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
 	hspi2.Init.NSS = SPI_NSS_SOFT;
-	hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+	hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
 	hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
 	hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
 	hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
 	hspi2.Init.CRCPolynomial = 10;
 	if (HAL_SPI_Init(&hspi2) != HAL_OK) {
-		Error_Handler();
+		//Error_Handler();
 	}
 	/* USER CODE BEGIN SPI2_Init 2 */
 
 	/* USER CODE END SPI2_Init 2 */
 
+}
+
+
+
+void spi2_send(uint8_t* data, uint16_t size) {
+	HAL_SPI_Transmit(&hspi2, data, size, HAL_MAX_DELAY);
+}
+
+void spi2_receive(uint8_t* data, uint16_t size) {
+	HAL_SPI_Receive(&hspi2, data, size, HAL_MAX_DELAY);
 }
