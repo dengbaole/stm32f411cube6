@@ -50,9 +50,7 @@ u16 TP_Read_AD(u8 CMD) {
 	delay_us(6);//ADS7846的转换时间最长为6us
 	TCLK = 0;
 	delay_us(1);
-	TCLK = 1;		//给1个时钟，清除BUSY
-	delay_us(1);
-	TCLK = 0;
+	TCLK = 1;		//给1个时钟，清除BUSY delay_us(1); TCLK = 0;
 	for(count = 0; count < 16; count++) { //读出16位数据,只有高12位有效
 		Num <<= 1;
 		TCLK = 0;	//下降沿有效

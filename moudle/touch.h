@@ -6,19 +6,19 @@
 #define TP_CATH_PRES 0x40  //�а��������� 	  
 
 typedef struct {
-	u8 (*init)(void);			//��ʼ��������������
-	u8 (*scan)(u8);				//ɨ�败����.0,��Ļɨ��;1,��������;
+	uint8_t (*init)(void);			//��ʼ��������������
+	uint8_t (*scan)(uint8_t);				//ɨ�败����.0,��Ļɨ��;1,��������;
 	void (*adjust)(void);		//������У׼
-	u16 x0;						//ԭʼ����(��һ�ΰ���ʱ������)
-	u16 y0;
-	u16 x; 						//��ǰ����(�˴�ɨ��ʱ,����������)
-	u16 y;
-	u8  sta;					//�ʵ�״̬
+	uint16_t x0;						//ԭʼ����(��һ�ΰ���ʱ������)
+	uint16_t y0;
+	uint16_t x; 						//��ǰ����(�˴�ɨ��ʱ,����������)
+	uint16_t y;
+	uint8_t  sta;					//�ʵ�״̬
 	float xfac;
 	float yfac;
 	short xoff;
 	short yoff;
-	u8 touchtype;
+	uint8_t touchtype;
 } _m_tp_dev;
 
 extern _m_tp_dev tp_dev;	 	//������������touch.c���涨��
@@ -30,19 +30,19 @@ extern _m_tp_dev tp_dev;	 	//������������touch.c���
 #define TCLK 		PBout(0)  	//T_SCK
 #define TCS  		PCout(5)  	//T_CS  
 
-void TP_Write_Byte(u8 num);						//�����оƬд��һ������
-u16 TP_Read_AD(u8 CMD);							//��ȡADת��ֵ
-u16 TP_Read_XOY(u8 xy);							//���˲��������ȡ(X/Y)
-u8 TP_Read_XY(u16* x, u16* y);					//˫�����ȡ(X+Y)
-u8 TP_Read_XY2(u16* x, u16* y);					//����ǿ�˲���˫���������ȡ
-void TP_Drow_Touch_Point(u16 x, u16 y, u16 color); //��һ������У׼��
-void TP_Draw_Big_Point(u16 x, u16 y, u16 color);	//��һ�����
-u8 TP_Scan(u8 tp);								//ɨ��
+void TP_Write_Byte(uint8_t num);						//�����оƬд��һ������
+uint16_t TP_Read_AD(uint8_t CMD);							//��ȡADת��ֵ
+uint16_t  TP_Read_XOY(uint8_t xy);							//���˲��������ȡ(X/Y)
+uint16_t TP_Read_XY(uint16_t* x, uint16_t* y);					//˫�����ȡ(X+Y)
+uint16_t  TP_Read_XY2(uint16_t* x, uint16_t* y);					//����ǿ�˲���˫���������ȡ
+void TP_Drow_Touch_Point(uint16_t x, uint16_t y, uint16_t color); //��һ������У׼��
+void TP_Draw_Big_Point(uint16_t x, uint16_t y, uint16_t color);	//��һ�����
+uint8_t TP_Scan(uint8_t tp);								//ɨ��
 void TP_Save_Adjdata(void);						//����У׼����
-u8 TP_Get_Adjdata(void);						//��ȡУ׼����
+uint8_t TP_Get_Adjdata(void);						//��ȡУ׼����
 void TP_Adjust(void);							//������У׼
-u8 TP_Init(void);								//��ʼ��
+uint8_t TP_Init(void);								//��ʼ��
 
-void TP_Adj_Info_Show(u16 x0, u16 y0, u16 x1, u16 y1, u16 x2, u16 y2, u16 x3, u16 y3, u16 fac); //��ʾУ׼��Ϣ
+void TP_Adj_Info_Show(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, uint16_t fac); //��ʾУ׼��Ϣ
 
 #endif
