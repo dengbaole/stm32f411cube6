@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'GPIO_IOToggle'
- * Target:  'GPIO_IOToggle'
+ * Project: 'GPIO_IOToggle' 
+ * Target:  'GPIO_IOToggle' 
  */
 
 #ifndef RTE_COMPONENTS_H
