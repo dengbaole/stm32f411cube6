@@ -24,11 +24,6 @@ void tp_gpio_init(void) {
 void tp_init(void) {
 	tp_gpio_init();
 	spi2_init();
-	tp_buff[0] = 0xd0;
-	tp_spi_send(tp_buff,1);
-	HAL_Delay(100);
-	tp_spi_receive(tp_buff, 2);
-	tp_buff[3] = 0xd0;
 }
 
 

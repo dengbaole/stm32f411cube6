@@ -51,6 +51,12 @@ void main_handler(uevt_t* evt) {
 			lv_timer_handler();
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
+				//触控代码
+				// tp_buff[0] = 0xd0;
+				tp_buff[0] = 0x90;
+				tp_spi_send(tp_buff,1);
+				HAL_Delay(10);
+				tp_spi_receive(tp_buff, 2);
 				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
 			}
 			break;
