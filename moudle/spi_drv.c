@@ -140,3 +140,10 @@ void spi2_send(uint8_t* data, uint16_t size) {
 void spi2_receive(uint8_t* data, uint16_t size) {
 	HAL_SPI_Receive(&hspi2, data, size, HAL_MAX_DELAY);
 }
+
+
+
+
+void spi2_transfer(uint8_t* tx_data, uint8_t* rx_data, uint16_t size) {
+	HAL_SPI_TransmitReceive(&hspi2, tx_data, rx_data, size, HAL_MAX_DELAY);
+}

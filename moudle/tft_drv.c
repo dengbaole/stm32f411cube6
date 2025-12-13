@@ -122,9 +122,9 @@ void lcd_init(void) {
 	tft_init();
 	spi1_init();
 	TFT_RES_Clr();
-	HAL_Delay(100);
+	HAL_Delay(10);
 	TFT_RES_Set();
-	HAL_Delay(50);
+	HAL_Delay(5);
 	// HAL_Delay(10);
 	// LCD_WR_REG(0x11);     //Sleep out
 	// HAL_Delay(12);                //Delay 120ms
@@ -226,7 +226,7 @@ void lcd_init(void) {
 	// LCD_WR_REG(0xa0);
 
 	LCD_WR_REG(0x11); //Exit Sleep
-	HAL_Delay(120);
+	HAL_Delay(12);
 	LCD_WR_REG(0x29); //display on
 
 	// LCD_direction(3);//设置LCD显示方向

@@ -52,14 +52,16 @@ void main_handler(uevt_t* evt) {
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
 				//触控代码
-				// tp_buff[0] = 0xd0;
-				tp_buff[0] = 0x90;
-				tp_spi_send(tp_buff,1);
-				HAL_Delay(10);
-				tp_spi_receive(tp_buff, 2);
-				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
+				// tp_tx_buff[0] = 0xd0;
+                
 			}
+			if(!IS_TP_IRQ_ON()) {
+                tp_get_xy(&tp_cal.tp_x_temp,&tp_cal.tp_y_temp);
+                tp_calibrate_coords(tp_cal.tp_x_temp,tp_cal.tp_y_temp,&tp_cal.tp_x,&tp_cal.tp_y);
+            }
+
 			break;
+
 		case UEVT_RTC_1MS:
 			lv_tick_inc(1);
 			break;

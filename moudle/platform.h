@@ -12,7 +12,7 @@
 #include "led_drv.h"
 #include "spi_drv.h"
 #include "tft_drv.h"
-#include "touch_drv.h"
+#include "touch_xtp2046_drv.h"
 
 //事件定义
 #define UEVT_APP_BASE (0xAE00)

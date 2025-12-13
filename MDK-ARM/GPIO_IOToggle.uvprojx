@@ -314,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -455,9 +455,9 @@
               <FilePath>..\moudle\led_drv.c</FilePath>
             </File>
             <File>
-              <FileName>touch_drv.c</FileName>
+              <FileName>touch_xpt2046_drv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\moudle\touch_drv.c</FilePath>
+              <FilePath>..\moudle\touch_xpt2046_drv.c</FilePath>
             </File>
           </Files>
         </Group>
