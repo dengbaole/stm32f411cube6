@@ -55,6 +55,7 @@ uint16_t tp_read_adc(uint8_t cmd) {
 	HAL_Delay(10);
 
 	// 接收2个字节的ADC数据
+	memset(tp_rx_buff,0,sizeof(tp_rx_buff));
 	spi2_receive(tp_rx_buff, 2);
 
 	TP_CS_HIGH();
@@ -123,16 +124,23 @@ uint16_t tp_read_pressure(void) {
 
 
 
-void tp_calibrate_coords(uint16_t raw_x, uint16_t raw_y,
-						 uint16_t* screen_x, uint16_t* screen_y) {
+void tp_calibrate_coords(uint16_t raw_x, uint16_t raw_y, uint16_t* screen_x, uint16_t* screen_y) {
 	// 限制在有效范围内
-	if(raw_x < tp_cal.x_min) raw_x = tp_cal.x_min;
-	if(raw_x > tp_cal.x_max) raw_x = tp_cal.x_max;
-	if(raw_y < tp_cal.y_min) raw_y = tp_cal.y_min;
-	if(raw_y > tp_cal.y_max) raw_y = tp_cal.y_max;
+	if(raw_x < tp_cal.x_min) {
+		raw_x = tp_cal.x_min;
+	}
+	if(raw_x > tp_cal.x_max) {
+		raw_x = tp_cal.x_max;
+	}
+	if(raw_y < tp_cal.y_min) {
+	 	raw_y = tp_cal.y_min;
+	}
+	if(raw_y > tp_cal.y_max) {
+	 	raw_y = tp_cal.y_max;
+	}
 
 	// 线性映射到屏幕坐标
-	*screen_x = (raw_x - tp_cal.x_min) * tp_cal.width /
+	*screen_x = (tp_cal.x_max - (raw_x - tp_cal.x_min)) * tp_cal.width /
 				(tp_cal.x_max - tp_cal.x_min);
 	*screen_y = (raw_y - tp_cal.y_min) * tp_cal.height /
 				(tp_cal.y_max - tp_cal.y_min);

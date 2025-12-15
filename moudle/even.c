@@ -52,12 +52,13 @@ void main_handler(uevt_t* evt) {
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
 				//触控代码
-				// tp_tx_buff[0] = 0xd0;
+				//HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
                 
 			}
 			if(!IS_TP_IRQ_ON()) {
+                HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
                 tp_get_xy(&tp_cal.tp_x_temp,&tp_cal.tp_y_temp);
-                tp_calibrate_coords(tp_cal.tp_x_temp,tp_cal.tp_y_temp,&tp_cal.tp_x,&tp_cal.tp_y);
+               	tp_calibrate_coords(tp_cal.tp_x_temp,tp_cal.tp_y_temp,&tp_cal.tp_x,&tp_cal.tp_y);
             }
 
 			break;

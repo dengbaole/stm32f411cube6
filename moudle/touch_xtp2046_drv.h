@@ -41,10 +41,10 @@ typedef struct {
 } tp_calibration_t;
 
 static tp_calibration_t tp_cal = {
-	.x_min = 200,   // 根据实际校准调整
-	.x_max = 3800,
-	.y_min = 300,
-	.y_max = 3900,
+	.x_min = 104,   // 根据实际校准调整
+	.x_max = 1900,
+	.y_min = 130,
+	.y_max = 2000,
 	.width = 240,   // 屏幕分辨率
 	.height = 320,
     .tp_x = 0,
