@@ -11,6 +11,50 @@
 #include "lv_port_disp.h"
 #include "lv_port_indev.h"
 
+static lv_obj_t * label_value;
+
+// 滑动条事件回调
+static void slider_event_cb(lv_event_t * e) {
+    lv_obj_t * slider = lv_event_get_target(e);
+    
+    // 获取当前滑动条的数值
+    int val = (int)lv_slider_get_value(slider);
+
+    // 实时更新标签文字，测试局部刷新频率
+    lv_label_set_text_fmt(label_value, "Value: %d%%", val);
+
+    // 动态改变标签的位置，增加趣味性并测试更大范围的重绘
+    lv_obj_set_y(label_value, -40 - (val / 2)); 
+}
+
+void lv_test_slider_ui(void) {
+    /* 1. 创建一个容器，方便整体布局 */
+    lv_obj_t * cont = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(cont, 200, 150);
+    lv_obj_center(cont);
+    lv_obj_set_style_bg_color(cont, lv_palette_lighten(LV_PALETTE_GREY, 3), 0);
+
+    /* 2. 创建滑动条 (Slider) */
+    lv_obj_t * slider = lv_slider_create(cont);
+    lv_obj_set_width(slider, 160);      // 设置宽度
+    lv_obj_align(slider, LV_ALIGN_CENTER, 0, 0);
+    lv_slider_set_range(slider, 0, 100); // 设置范围 0-100
+    
+    // 添加事件：只要值改变就触发
+    lv_obj_add_event_cb(slider, slider_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+
+    /* 3. 创建显示数值的标签 */
+    label_value = lv_label_create(cont);
+    lv_label_set_text(label_value, "Value: 0%");
+    lv_obj_set_style_text_font(label_value, &lv_font_montserrat_14, 0);
+    lv_obj_align_to(label_value, slider, LV_ALIGN_OUT_TOP_MID, 0, -10);
+
+    /* 4. 给滑动条加点样式，测试渲染效果 */
+    // 设置滑块（针头）的颜色
+    lv_obj_set_style_bg_color(slider, lv_palette_main(LV_PALETTE_RED), LV_PART_KNOB);
+    // 设置已激活部分的颜色
+    lv_obj_set_style_bg_color(slider, lv_palette_main(LV_PALETTE_BLUE), LV_PART_INDICATOR);
+}
 //处理打印测试
 void main_handler(uevt_t* evt) {
 	char time_string[9]; // HH:MM:SS 格式需要 9 个字符（包括结束符）
@@ -32,23 +76,23 @@ void main_handler(uevt_t* evt) {
 			lv_init();
 			lv_port_disp_init();//显示
 			lv_port_indev_init();  //触控
+        
+			lv_test_slider_ui();
+			// lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
+			// lv_obj_set_pos(mybtn, 10, 10);
+			// lv_obj_set_size(mybtn, 120, 50);
 
-			lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
-			lv_obj_set_pos(mybtn, 10, 10);
-			lv_obj_set_size(mybtn, 120, 50);
 
+			// lv_obj_t* label_btn = lv_label_create(mybtn);
+			// lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);
+			// lv_label_set_text(label_btn, "test");
 
-			lv_obj_t* label_btn = lv_label_create(mybtn);
-			lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);
-			lv_label_set_text(label_btn, "test");
-
-			lv_obj_t* mylabel = lv_label_create(lv_scr_act());
-			lv_label_set_text(mylabel, "LVGL_2025!");
-			lv_obj_align(mylabel, LV_ALIGN_CENTER, 0, 0);
-			lv_obj_align_to(mybtn, mylabel, LV_ALIGN_OUT_TOP_MID, 0, 0);
+			// lv_obj_t* mylabel = lv_label_create(lv_scr_act());
+			// lv_label_set_text(mylabel, "LVGL_2025!");
+			// lv_obj_align(mylabel, LV_ALIGN_CENTER, 0, 0);
+			// lv_obj_align_to(mybtn, mylabel, LV_ALIGN_OUT_TOP_MID, 0, 0);
 			break;
 		case UEVT_RTC_10MS:
-			lv_timer_handler();
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
 				//触控代码
@@ -60,9 +104,8 @@ void main_handler(uevt_t* evt) {
                 tp_get_xy(&tp_cal.tp_x_temp,&tp_cal.tp_y_temp);
                	tp_calibrate_coords(tp_cal.tp_x_temp,tp_cal.tp_y_temp,&tp_cal.tp_x,&tp_cal.tp_y);
             }
-
+			lv_timer_handler();
 			break;
-
 		case UEVT_RTC_1MS:
 			lv_tick_inc(1);
 			break;

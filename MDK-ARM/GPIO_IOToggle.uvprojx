@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting</IncludePath>
+              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting;..\moudle\lvgl\demos\music</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

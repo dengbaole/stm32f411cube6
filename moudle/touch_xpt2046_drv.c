@@ -45,23 +45,42 @@ void tp_spi_receive(uint8_t* data, uint16_t size) {
  * @param  cmd: 读取命令（X, Y, Z1, Z2）
  * @retval ADC 值（12位）
  */
+// uint16_t tp_read_adc(uint8_t cmd) {
+//     tp_tx_buff[0] = cmd;
+// 	TP_CS_LOW();
+// 	// for(volatile int i = 0; i < 10; i++);
+// 	HAL_Delay(1);
+// 	// 发送命令字节
+// 	spi2_send(tp_tx_buff, 1);
+// 	HAL_Delay(10);
+
+// 	// 接收2个字节的ADC数据
+// 	memset(tp_rx_buff,0,sizeof(tp_rx_buff));
+// 	spi2_receive(tp_rx_buff, 2);
+
+// 	TP_CS_HIGH();
+
+// 	// 组合12位ADC值
+// 	return ((tp_rx_buff[0] << 8) | tp_rx_buff[1]) >> 4;
+// }
+
 uint16_t tp_read_adc(uint8_t cmd) {
-    tp_tx_buff[0] = cmd;
-	TP_CS_LOW();
-	// for(volatile int i = 0; i < 10; i++);
-	HAL_Delay(1);
-	// 发送命令字节
-	spi2_send(tp_tx_buff, 1);
-	HAL_Delay(10);
+    uint8_t tx[3] = {0};
+    uint8_t rx[3] = {0};
+    tx[0] = cmd;
 
-	// 接收2个字节的ADC数据
-	memset(tp_rx_buff,0,sizeof(tp_rx_buff));
-	spi2_receive(tp_rx_buff, 2);
+    TP_CS_LOW();
+    
+    // 使用全双工传输或顺序传输，去掉所有 HAL_Delay
+    // 发送命令的同时接收第一个字节（通常是0）
+    HAL_SPI_TransmitReceive(&hspi2, tx, rx, 3, 10); 
+    
+    TP_CS_HIGH();
 
-	TP_CS_HIGH();
-
-	// 组合12位ADC值
-	return ((tp_rx_buff[0] << 8) | tp_rx_buff[1]) >> 4;
+    // XPT2046 返回的是 12 位数据，分布在 rx[1] 和 rx[2] 中
+    // 具体的位移取决于芯片手册，通常是：
+    uint16_t res = ((uint16_t)rx[1] << 8) | rx[2];
+    return res >> 4; // 12位有效数据
 }
 
 
