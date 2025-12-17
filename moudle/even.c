@@ -31,7 +31,7 @@ void main_handler(uevt_t* evt) {
 
 			lv_init();
 			lv_port_disp_init();//显示
-			// lv_port_indev_init();  //触控
+			lv_port_indev_init();  //触控
 
 			lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
 			lv_obj_set_pos(mybtn, 10, 10);

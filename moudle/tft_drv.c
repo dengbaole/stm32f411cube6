@@ -290,3 +290,16 @@ void LCD_Clear(uint16_t Color) {
 	}
 	TFT_CS_HIGH();
 }
+
+lv_disp_drv_t* current_disp_drv = NULL;
+// DMA传输完成回调
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
+    if (hspi->Instance == SPI1) {
+        TFT_CS_HIGH();  // 传输完成，拉高CS
+        
+        if (current_disp_drv) {
+            lv_disp_flush_ready(current_disp_drv);
+            current_disp_drv = NULL;
+        }
+    }
+}

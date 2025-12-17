@@ -42,9 +42,13 @@
 #define TFT_RES_Clr()  HAL_GPIO_WritePin(TFT_RST_PORT,TFT_RST_PIN,GPIO_PIN_RESET)//RES
 #define TFT_RES_Set()  HAL_GPIO_WritePin(TFT_RST_PORT,TFT_RST_PIN,GPIO_PIN_SET)
 
+#include "lvgl.h"
+extern lv_disp_drv_t* current_disp_drv;
+
 void lcd_init(void);
 void LCD_Fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);
 void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color);
+void LCD_SetWindows(uint16_t xStar, uint16_t yStar, uint16_t xEnd, uint16_t yEnd);
 void LCD_Clear(uint16_t Color);
 #endif /*__ pinoutConfig_H */
 
