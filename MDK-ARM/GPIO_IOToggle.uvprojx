@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting;..\moudle\lvgl\demos\music</IncludePath>
+              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting;..\moudle\lvgl\demos\music;..\moudle\src;..\moudle\src\custom;..\moudle\src\generated;..\moudle\src\generated\guider_customer_fonts;..\moudle\src\generated\guider_fonts;..\moudle\src\generated\images</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1571,6 +1571,51 @@
               <FileName>lv_textarea.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\moudle\lvgl\src\widgets\lv_textarea.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>my_lvgl_src</GroupName>
+          <Files>
+            <File>
+              <FileName>custom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\custom\custom.c</FilePath>
+            </File>
+            <File>
+              <FileName>events_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\events_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>gui_guider.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\gui_guider.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_screen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\setup_scr_screen.c</FilePath>
+            </File>
+            <File>
+              <FileName>widgets_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\widgets_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserratMedium_12.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\guider_fonts\lv_font_montserratMedium_12.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_SourceHanSerifSC_Regular_16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\guider_fonts\lv_font_SourceHanSerifSC_Regular_16.c</FilePath>
+            </File>
+            <File>
+              <FileName>_unlockohms_alpha_101x37.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\_unlockohms_alpha_101x37.c</FilePath>
             </File>
           </Files>
         </Group>

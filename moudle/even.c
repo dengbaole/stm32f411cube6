@@ -55,6 +55,11 @@ void lv_test_slider_ui(void) {
     // 设置已激活部分的颜色
     lv_obj_set_style_bg_color(slider, lv_palette_main(LV_PALETTE_BLUE), LV_PART_INDICATOR);
 }
+
+#include "../generated/gui_guider.h"
+#include "../generated/events_init.h"
+
+lv_ui guider_ui;
 //处理打印测试
 void main_handler(uevt_t* evt) {
 	char time_string[9]; // HH:MM:SS 格式需要 9 个字符（包括结束符）
@@ -76,8 +81,11 @@ void main_handler(uevt_t* evt) {
 			lv_init();
 			lv_port_disp_init();//显示
 			lv_port_indev_init();  //触控
+            
+            	setup_ui(&guider_ui);
+   	events_init(&guider_ui);
         
-			lv_test_slider_ui();
+			//lv_test_slider_ui();
 			// lv_obj_t* mybtn = lv_btn_create(lv_scr_act());
 			// lv_obj_set_pos(mybtn, 10, 10);
 			// lv_obj_set_size(mybtn, 120, 50);
@@ -96,14 +104,9 @@ void main_handler(uevt_t* evt) {
 			tick_10MS++;
 			if(tick_10MS % 50 == 0) {
 				//触控代码
-				//HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
+				HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
                 
 			}
-			if(!IS_TP_IRQ_ON()) {
-                HAL_GPIO_TogglePin(LED_B_PORT, LED_B_PIN);
-                tp_get_xy(&tp_cal.tp_x_temp,&tp_cal.tp_y_temp);
-               	tp_calibrate_coords(tp_cal.tp_x_temp,tp_cal.tp_y_temp,&tp_cal.tp_x,&tp_cal.tp_y);
-            }
 			lv_timer_handler();
 			break;
 		case UEVT_RTC_1MS:
