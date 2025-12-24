@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting;..\moudle\lvgl\demos\music;..\moudle\src;..\moudle\src\custom;..\moudle\src\generated;..\moudle\src\generated\guider_customer_fonts;..\moudle\src\generated\guider_fonts;..\moudle\src\generated\images</IncludePath>
+              <IncludePath>../moudle;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\utils;..\moudle\lvgl;..\moudle\lvgl\src;..\moudle\lvgl\examples\porting;..\moudle\lvgl\demos\music;..\moudle\src;..\moudle\src\custom;..\moudle\src\generated;..\moudle\src\generated\guider_customer_fonts;..\moudle\src\generated\guider_fonts;..\moudle\src\generated\images;..\moudle\src\custom</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1598,6 +1598,11 @@
               <FilePath>..\moudle\src\generated\setup_scr_screen.c</FilePath>
             </File>
             <File>
+              <FileName>setup_scr_screen_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\setup_scr_screen_1.c</FilePath>
+            </File>
+            <File>
               <FileName>widgets_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\moudle\src\generated\widgets_init.c</FilePath>
@@ -1608,14 +1613,274 @@
               <FilePath>..\moudle\src\generated\guider_fonts\lv_font_montserratMedium_12.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserratMedium_16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\guider_fonts\lv_font_montserratMedium_16.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_SourceHanSerifSC_Regular_16.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\moudle\src\generated\guider_fonts\lv_font_SourceHanSerifSC_Regular_16.c</FilePath>
             </File>
             <File>
+              <FileName>_060_0_alpha_100x100.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\_060_0_alpha_100x100.c</FilePath>
+            </File>
+            <File>
               <FileName>_unlockohms_alpha_101x37.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\moudle\src\generated\images\_unlockohms_alpha_101x37.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1000_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1000_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1001_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1001_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1002_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1002_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1003_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1003_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1004_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1004_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1105_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1105_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1106_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1106_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1107_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1107_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1108_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1108_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1109_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1109_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1110_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1110_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1111_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1111_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1112_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1112_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1113_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1113_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1114_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1114_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1115_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1115_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1116_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1116_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1117_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1117_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1118_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1118_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1119_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1119_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1120_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1120_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1121_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1121_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1122_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1122_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1123_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1123_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1124_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1124_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1125_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1125_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1126_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1126_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1127_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1127_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1128_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1128_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1129_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1129_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1130_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1130_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1131_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1131_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1132_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1132_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1133_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1133_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1134_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1134_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1135_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1135_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1136_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1136_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1137_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1137_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1138_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1138_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1139_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1139_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1140_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1140_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1141_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1141_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1142_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1142_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1143_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1143_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1144_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1144_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1145_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1145_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1146_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1146_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1147_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1147_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1148_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1148_0.c</FilePath>
+            </File>
+            <File>
+              <FileName>screen_animimg_1149_0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\moudle\src\generated\images\screen_animimg_1149_0.c</FilePath>
             </File>
           </Files>
         </Group>
